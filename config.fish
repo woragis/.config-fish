@@ -5,9 +5,17 @@ fish_add_path -g $HOME/.local/bin
 fish_add_path -g $HOME/.railway/bin
 
 set -gx RAILWAY_HOME $HOME/.railway
-set -gx STARSHIP_CONFIG $HOME/.config/zsh/starship.toml
+set -gx STARSHIP_CONFIG $__fish_config_dir/starship.toml
+
+if test -r $__fish_config_dir/api-keys.fish
+    source $__fish_config_dir/api-keys.fish
+end
 
 if status is-interactive
+    if test -r $__fish_config_dir/abbreviations.fish
+        source $__fish_config_dir/abbreviations.fish
+    end
+
     # Aliases
     alias ls 'ls --color=auto'
     alias ll 'ls -lah --group-directories-first'
@@ -16,6 +24,14 @@ if status is-interactive
     alias grep 'grep --color=auto'
     alias g git
     alias gs 'git status -sb'
+    alias ga 'git add'
+    alias gaa 'git add -A'
+    alias gc 'git commit -m'
+    alias gca 'git commit --amend'
+    alias gcane 'git commit --amend --no-edit'
+    alias gps 'git push'
+    alias gpsu 'git push -u origin HEAD'
+    alias gpsum 'git push -u origin main'
     alias gd 'git diff'
     alias gl 'git log --oneline -20'
 
