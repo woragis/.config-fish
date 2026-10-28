@@ -20,6 +20,7 @@ if status is-interactive
     alias ls 'ls --color=auto'
     alias ll 'ls -lah --group-directories-first'
     alias la 'ls -A'
+    alias lah 'ls -lah --group-directories-first'
     alias vim nvim
     alias grep 'grep --color=auto'
     alias g git
@@ -34,6 +35,10 @@ if status is-interactive
     alias gpsum 'git push -u origin main'
     alias gd 'git diff'
     alias gl 'git log --oneline -20'
+    alias codex 'codex --dangerously-bypass-approvals-and-sandbox'
+    alias codr 'codex --dangerously-bypass-approvals-and-sandbox resume'
+    alias codexr 'codex --dangerously-bypass-approvals-and-sandbox resume'
+    alias coder 'codex --dangerously-bypass-approvals-and-sandbox resume'
 
     if command -q bat
         alias cat 'bat --paging=never'
